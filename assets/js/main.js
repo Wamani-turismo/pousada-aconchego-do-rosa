@@ -46,6 +46,11 @@ const INSTAGRAM_URL = "https://www.instagram.com/aconchegodorosa/";
       if (dict[key] !== undefined) el.setAttribute("aria-label", dict[key]);
     });
 
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-alt");
+      if (dict[key] !== undefined) el.setAttribute("alt", dict[key]);
+    });
+
     const whatsappUrl = buildWhatsappUrl(lang);
     document.querySelectorAll(".js-whatsapp").forEach((el) => {
       el.setAttribute("href", whatsappUrl);
