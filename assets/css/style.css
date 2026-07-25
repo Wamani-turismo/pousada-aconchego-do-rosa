@@ -254,7 +254,7 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   color: var(--blanco);
-  background: linear-gradient(180deg, rgba(51,41,31,0.55) 0%, rgba(51,41,31,0.35) 45%, rgba(51,41,31,0.75) 100%), url("../img/hero.jpg") center/cover no-repeat;
+  background: linear-gradient(180deg, rgba(51,41,31,0.55) 0%, rgba(51,41,31,0.35) 45%, rgba(51,41,31,0.75) 100%), url("../img/hero.jpg") center top/cover no-repeat;
 }
 .hero__content {
   max-width: 720px;
@@ -666,6 +666,12 @@ p { margin: 0 0 1em; }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    aspect-ratio: 3 / 4;
+    padding-bottom: 48px;
+  }
+  .hero__content { padding-top: 90px; }
   .nav__links, .lang-toggle--desktop { display: none; }
   .nav-toggle { display: flex; }
   .nav.is-open .nav__links {
