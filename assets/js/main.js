@@ -141,6 +141,54 @@ const INSTAGRAM_URL = "https://www.instagram.com/aconchegodorosa/";
     });
   }
 
+  const EXPLORE_DATA = {
+    playa: { img: "assets/img/explorar/playa-surf.jpg", key: "playa" },
+    centrinho: { img: "assets/img/explorar/centrinho.jpg", key: "centrinho" },
+    morros: { img: "assets/img/explorar/morros.jpg", key: "morros" },
+    ballena: { img: "assets/img/explorar/ballena.jpg", key: "ballena" }
+  };
+
+  function initExploreModal() {
+    const modal = document.querySelector(".info-modal");
+    if (!modal) return;
+    const modalImg = modal.querySelector(".info-modal__img");
+    const modalTitle = modal.querySelector(".info-modal__title");
+    const modalText = modal.querySelector(".info-modal__text");
+    const modalCredit = modal.querySelector(".info-modal__credit");
+    const closeBtn = modal.querySelector(".info-modal__close");
+
+    document.querySelectorAll("[data-explore]").forEach((card) => {
+      const open = () => {
+        const entry = EXPLORE_DATA[card.getAttribute("data-explore")];
+        if (!entry) return;
+        const dict = I18N[currentLang];
+        modalImg.src = entry.img;
+        modalTitle.textContent = dict["explore_modal_" + entry.key + "_title"] || "";
+        modalText.textContent = dict["explore_modal_" + entry.key + "_text"] || "";
+        modalCredit.textContent = dict["explore_modal_" + entry.key + "_credit"] || "";
+        modal.classList.add("is-open");
+      };
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
+      });
+    });
+
+    function close() {
+      modal.classList.remove("is-open");
+    }
+    closeBtn.addEventListener("click", close);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  }
+
   function initStaticLinks() {
     document.querySelectorAll(".js-booking").forEach((el) => el.setAttribute("href", BOOKING_URL));
     document.querySelectorAll(".js-instagram").forEach((el) => el.setAttribute("href", INSTAGRAM_URL));
@@ -156,6 +204,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/aconchegodorosa/";
     initMobileNav();
     initReveal();
     initLightbox();
+    initExploreModal();
   });
 })();
 
