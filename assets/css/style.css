@@ -254,9 +254,36 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   color: var(--blanco);
-  background: linear-gradient(180deg, rgba(51,41,31,0.55) 0%, rgba(51,41,31,0.35) 45%, rgba(51,41,31,0.75) 100%), url("../img/hero.jpg") center top/cover no-repeat;
+  overflow: hidden;
+}
+.hero__slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-position: center top;
+  background-size: cover;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.8s ease, transform 7s ease;
+}
+.hero__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(51,41,31,0.55) 0%, rgba(51,41,31,0.35) 45%, rgba(51,41,31,0.75) 100%);
 }
 .hero__content {
+  position: relative;
+  z-index: 3;
   max-width: 720px;
   padding-top: 120px;
 }
@@ -281,6 +308,7 @@ p { margin: 0 0 1em; }
 }
 .scroll-hint {
   position: absolute;
+  z-index: 3;
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
@@ -577,6 +605,115 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Gallery carousel modal ---------------------------------------------------- */
+.carousel-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 16, 12, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2100;
+  padding: 24px;
+}
+.carousel-modal.is-open { display: flex; }
+.carousel-modal__box {
+  position: relative;
+  background: var(--crema);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+.carousel-modal__stage {
+  position: relative;
+  background: #000;
+  flex: none;
+}
+.carousel-modal__img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+.carousel-modal__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(20, 16, 12, 0.55);
+  border: none;
+  color: var(--blanco);
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-modal__arrow:hover { background: rgba(20, 16, 12, 0.8); }
+.carousel-modal__arrow--prev { left: 14px; }
+.carousel-modal__arrow--next { right: 14px; }
+.carousel-modal__dots {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+.carousel-modal__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.carousel-modal__dot.is-active { background: var(--blanco); }
+.carousel-modal__body {
+  padding: 26px 32px;
+  overflow-y: auto;
+}
+.carousel-modal__title {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.carousel-modal__text {
+  font-size: 1rem;
+  color: #4a3f33;
+  margin: 0;
+}
+.carousel-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(20, 16, 12, 0.55);
+  border: none;
+  color: var(--blanco);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .carousel-modal__img { height: 260px; }
 }
 
 /* Reviews --------------------------------------------------------------------- */

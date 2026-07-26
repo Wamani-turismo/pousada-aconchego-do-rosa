@@ -83,10 +83,10 @@
 
     <nav class="nav">
       <ul class="nav__links">
+        <li><a href="#galeria" data-i18n="nav_gallery">Galeria</a></li>
+        <li><a href="#explorar" data-i18n="nav_explore">Explorar</a></li>
         <li><a href="#apartamentos" data-i18n="nav_apartments">Apartamentos</a></li>
         <li><a href="#comodidades" data-i18n="nav_amenities">Comodidades</a></li>
-        <li><a href="#explorar" data-i18n="nav_explore">Explorar</a></li>
-        <li><a href="#galeria" data-i18n="nav_gallery">Galeria</a></li>
         <li><a href="#avaliacoes" data-i18n="nav_reviews">Avaliações</a></li>
         <li><a href="#localizacao" data-i18n="nav_location">Localização</a></li>
       </ul>
@@ -108,6 +108,13 @@
 
 <!-- HERO ================================================================ -->
 <section class="hero" id="inicio">
+  <div class="hero__slides">
+    <div class="hero__slide is-active" style="background-image:url('assets/img/hero.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('assets/img/explorar/playa-surf.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('assets/img/gallery/habitaciones/habitacion-cama.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('assets/img/explorar/morros.jpg')"></div>
+  </div>
+  <div class="hero__scrim"></div>
   <div class="container hero__content">
     <span class="eyebrow" data-i18n="hero_eyebrow">Praia do Rosa · Santa Catarina · Brasil</span>
     <h1 data-i18n="hero_title">Pousada Aconchego do Rosa</h1>
@@ -149,6 +156,106 @@
     </div>
   </div>
 </section>
+
+<!-- GALLERY (cards) ================================================================ -->
+<section class="section" id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="gallery_eyebrow">Galeria</span>
+      <h2 data-i18n="gallery_title">Um pouco do nosso aconchego</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="explore-card reveal" data-carousel="apartamentos" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/img/gallery/habitaciones/habitacion-balcon-arriba.jpg" alt="Apartamentos" loading="lazy">
+        <div class="explore-card__overlay">
+          <h3 data-i18n="gallery_group_habitaciones">Apartamentos</h3>
+        </div>
+      </div>
+      <div class="explore-card reveal" data-carousel="posada" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/img/gallery/posada/posada-entrada.jpg" alt="Pousada" loading="lazy">
+        <div class="explore-card__overlay">
+          <h3 data-i18n="gallery_group_posada">Pousada</h3>
+        </div>
+      </div>
+      <div class="explore-card reveal" data-carousel="compartir" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/img/gallery/compartir/compartir-01-quincho.jpg" alt="Áreas de convívio" loading="lazy">
+        <div class="explore-card__overlay">
+          <h3 data-i18n="gallery_group_compartir">Áreas de convívio</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY CAROUSEL MODAL ================================================================ -->
+<div class="carousel-modal">
+  <div class="carousel-modal__box">
+    <button class="carousel-modal__close" data-i18n-aria="lightbox_close" aria-label="Fechar">&times;</button>
+    <div class="carousel-modal__stage">
+      <img class="carousel-modal__img" src="" alt="">
+      <button class="carousel-modal__arrow carousel-modal__arrow--prev" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-modal__arrow carousel-modal__arrow--next" aria-label="Próxima">&#10095;</button>
+      <div class="carousel-modal__dots"></div>
+    </div>
+    <div class="carousel-modal__body">
+      <h3 class="carousel-modal__title"></h3>
+      <p class="carousel-modal__text"></p>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLORE ================================================================ -->
+<section class="section section--alt" id="explorar">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="explore_eyebrow">Ao redor</span>
+      <h2 data-i18n="explore_title">Explorar Praia do Rosa</h2>
+    </div>
+    <div class="grid grid--4">
+      <div class="explore-card reveal" data-explore="playa" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/img/explorar/playa-surf-thumb.jpg" alt="Praia do Rosa" loading="lazy">
+        <div class="explore-card__overlay">
+          <h3 data-i18n="explore_beach_title">Praia e surf</h3>
+          <p data-i18n="explore_beach_p">A 13 minutos a pé, com ondas para todos os níveis.</p>
+        </div>
+      </div>
+      <div class="explore-card reveal" data-explore="centrinho" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/img/explorar/centrinho-thumb.jpg" alt="Centrinho de Praia do Rosa à noite" loading="lazy">
+        <div class="explore-card__overlay">
+          <h3 data-i18n="explore_centrinho_title">Centrinho</h3>
+          <p data-i18n="explore_centrinho_p">Bares, restaurantes e vida noturna a poucos passos.</p>
+        </div>
+      </div>
+      <div class="explore-card reveal" data-explore="morros" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/img/explorar/morros-thumb.jpg" alt="Morros de Praia do Rosa" loading="lazy">
+        <div class="explore-card__overlay">
+          <h3 data-i18n="explore_hiking_title">Morros, trilhas e Lagoa de Ibiraquera</h3>
+          <p data-i18n="explore_hiking_p">Trilhas com vista para o mar e mirantes.</p>
+        </div>
+      </div>
+      <div class="explore-card reveal" data-explore="ballena" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/img/explorar/ballena-thumb.jpg" alt="Baleia franca" loading="lazy">
+        <div class="explore-card__overlay">
+          <h3 data-i18n="explore_whales_title">Baleias-francas</h3>
+          <p data-i18n="explore_whales_p">Temporada de junho a novembro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE INFO MODAL ================================================================ -->
+<div class="info-modal">
+  <div class="info-modal__box">
+    <button class="info-modal__close" data-i18n-aria="lightbox_close" aria-label="Fechar">&times;</button>
+    <img class="info-modal__img" src="" alt="">
+    <div class="info-modal__body">
+      <h3 class="info-modal__title"></h3>
+      <p class="info-modal__text"></p>
+      <p class="info-modal__credit"></p>
+    </div>
+  </div>
+</div>
 
 <!-- APARTMENTS ================================================================ -->
 <section class="section section--alt" id="apartamentos">
@@ -212,150 +319,6 @@
     </div>
   </div>
 </section>
-
-<!-- EXPLORE ================================================================ -->
-<section class="section section--alt" id="explorar">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="explore_eyebrow">Ao redor</span>
-      <h2 data-i18n="explore_title">Explorar Praia do Rosa</h2>
-    </div>
-    <div class="grid grid--4">
-      <div class="explore-card reveal" data-explore="playa" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="assets/img/explorar/playa-surf-thumb.jpg" alt="Praia do Rosa" loading="lazy">
-        <div class="explore-card__overlay">
-          <h3 data-i18n="explore_beach_title">Praia e surf</h3>
-          <p data-i18n="explore_beach_p">A 13 minutos a pé, com ondas para todos os níveis.</p>
-        </div>
-      </div>
-      <div class="explore-card reveal" data-explore="centrinho" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="assets/img/explorar/centrinho-thumb.jpg" alt="Centrinho de Praia do Rosa à noite" loading="lazy">
-        <div class="explore-card__overlay">
-          <h3 data-i18n="explore_centrinho_title">Centrinho</h3>
-          <p data-i18n="explore_centrinho_p">Bares, restaurantes e vida noturna a poucos passos.</p>
-        </div>
-      </div>
-      <div class="explore-card reveal" data-explore="morros" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="assets/img/explorar/morros-thumb.jpg" alt="Morros de Praia do Rosa" loading="lazy">
-        <div class="explore-card__overlay">
-          <h3 data-i18n="explore_hiking_title">Morros, trilhas e Lagoa de Ibiraquera</h3>
-          <p data-i18n="explore_hiking_p">Trilhas com vista para o mar e mirantes.</p>
-        </div>
-      </div>
-      <div class="explore-card reveal" data-explore="ballena" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="assets/img/explorar/ballena-thumb.jpg" alt="Baleia franca" loading="lazy">
-        <div class="explore-card__overlay">
-          <h3 data-i18n="explore_whales_title">Baleias-francas</h3>
-          <p data-i18n="explore_whales_p">Temporada de junho a novembro.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPLORE INFO MODAL ================================================================ -->
-<div class="info-modal">
-  <div class="info-modal__box">
-    <button class="info-modal__close" data-i18n-aria="lightbox_close" aria-label="Fechar">&times;</button>
-    <img class="info-modal__img" src="" alt="">
-    <div class="info-modal__body">
-      <h3 class="info-modal__title"></h3>
-      <p class="info-modal__text"></p>
-      <p class="info-modal__credit"></p>
-    </div>
-  </div>
-</div>
-
-<!-- GALLERY ================================================================ -->
-<section class="section" id="galeria">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="gallery_eyebrow">Galeria</span>
-      <h2 data-i18n="gallery_title">Um pouco do nosso aconchego</h2>
-    </div>
-    <div class="gallery-group reveal">
-      <h3 class="gallery-group__title" data-i18n="gallery_group_posada">Pousada</h3>
-      <div class="gallery">
-        <div class="gallery__item gallery__item--wide" data-lightbox="assets/img/gallery/posada/posada-entrada.jpg">
-          <img src="assets/img/gallery/posada/posada-entrada.jpg" alt="Entrada da Pousada Aconchego do Rosa" data-i18n-alt="gallery_posada_1" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/posada/posada-letrero.jpg">
-          <img src="assets/img/gallery/posada/posada-letrero.jpg" alt="Letreiro de boas-vindas" data-i18n-alt="gallery_posada_2" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/posada/posada-cabanas-1.jpg">
-          <img src="assets/img/gallery/posada/posada-cabanas-1.jpg" alt="Vista das cabanas" data-i18n-alt="gallery_posada_3" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/posada/posada-cabanas-2.jpg">
-          <img src="assets/img/gallery/posada/posada-cabanas-2.jpg" alt="Vista das cabanas e do jardim" data-i18n-alt="gallery_posada_4" loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery-group reveal">
-      <h3 class="gallery-group__title" data-i18n="gallery_group_habitaciones">Apartamentos</h3>
-      <div class="gallery">
-        <div class="gallery__item gallery__item--wide" data-lightbox="assets/img/gallery/habitaciones/habitacion-balcon-arriba.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-balcon-arriba.jpg" alt="Varanda superior com hamaca paraguaia" data-i18n-alt="gallery_hab_1" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/habitaciones/habitacion-balcon-abajo.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-balcon-abajo.jpg" alt="Varanda térrea com cadeiras e hamaca" data-i18n-alt="gallery_hab_2" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/habitaciones/habitacion-cama.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-cama.jpg" alt="Quarto com cama de casal" data-i18n-alt="gallery_hab_3" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/habitaciones/habitacion-entrada.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-entrada.jpg" alt="Entrada do apartamento" data-i18n-alt="gallery_hab_4" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/habitaciones/habitacion-cocina.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-cocina.jpg" alt="Cozinha própria equipada" data-i18n-alt="gallery_hab_5" loading="lazy">
-        </div>
-        <div class="gallery__item gallery__item--wide" data-lightbox="assets/img/gallery/habitaciones/habitacion-bar.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-bar.jpg" alt="Espaço para o café da manhã" data-i18n-alt="gallery_hab_6" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/habitaciones/habitacion-living.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-living.jpg" alt="Living com sofá" data-i18n-alt="gallery_hab_7" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/habitaciones/habitacion-bano.jpg">
-          <img src="assets/img/gallery/habitaciones/habitacion-bano.jpg" alt="Banheiro privativo" data-i18n-alt="gallery_hab_8" loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery-group reveal">
-      <h3 class="gallery-group__title" data-i18n="gallery_group_compartir">Áreas de convívio</h3>
-      <div class="gallery">
-        <div class="gallery__item gallery__item--wide" data-lightbox="assets/img/gallery/compartir/compartir-01-quincho.jpg">
-          <img src="assets/img/gallery/compartir/compartir-01-quincho.jpg" alt="Quincho e churrasqueira compartilhados" data-i18n-alt="gallery_comp_1" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/compartir/compartir-02-quincho.jpg">
-          <img src="assets/img/gallery/compartir/compartir-02-quincho.jpg" alt="Momento de descontração no quincho" data-i18n-alt="gallery_comp_2" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/compartir/compartir-03-pingpong.jpg">
-          <img src="assets/img/gallery/compartir/compartir-03-pingpong.jpg" alt="Mesa de pingue-pongue no jardim" data-i18n-alt="gallery_comp_3" loading="lazy">
-        </div>
-        <div class="gallery__item gallery__item--wide" data-lightbox="assets/img/gallery/compartir/compartir-04-quincho.jpg">
-          <img src="assets/img/gallery/compartir/compartir-04-quincho.jpg" alt="Quincho com hamaca e cozinha compartilhada" data-i18n-alt="gallery_comp_4" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/compartir/compartir-05-recreacion.jpg">
-          <img src="assets/img/gallery/compartir/compartir-05-recreacion.jpg" alt="Recreação no jardim" data-i18n-alt="gallery_comp_5" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/compartir/compartir-06-quincho.jpg">
-          <img src="assets/img/gallery/compartir/compartir-06-quincho.jpg" alt="Vista do quincho para as cabanas" data-i18n-alt="gallery_comp_6" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/compartir/compartir-07-quincho.jpg">
-          <img src="assets/img/gallery/compartir/compartir-07-quincho.jpg" alt="Churrasqueira do quincho" data-i18n-alt="gallery_comp_7" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/compartir/compartir-08-quincho.jpg">
-          <img src="assets/img/gallery/compartir/compartir-08-quincho.jpg" alt="Cozinha compartilhada" data-i18n-alt="gallery_comp_8" loading="lazy">
-        </div>
-        <div class="gallery__item" data-lightbox="assets/img/gallery/compartir/compartir-09-quincho.jpg">
-          <img src="assets/img/gallery/compartir/compartir-09-quincho.jpg" alt="Espaço do quincho" data-i18n-alt="gallery_comp_9" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- REVIEWS ================================================================ -->
 <section class="section section--alt" id="avaliacoes">
   <div class="container">

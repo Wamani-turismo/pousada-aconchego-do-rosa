@@ -141,6 +141,143 @@ const INSTAGRAM_URL = "https://www.instagram.com/aconchegodorosa/";
     });
   }
 
+  function initHeroSlides() {
+    const slides = document.querySelectorAll(".hero__slide");
+    if (slides.length < 2) return;
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove("is-active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("is-active");
+    }, 5500);
+  }
+
+  const CAROUSEL_DATA = {
+    apartamentos: {
+      textKey: "gallery_modal_apartamentos_text",
+      images: [
+        "assets/img/gallery/habitaciones/habitacion-balcon-arriba.jpg",
+        "assets/img/gallery/habitaciones/habitacion-balcon-abajo.jpg",
+        "assets/img/gallery/habitaciones/habitacion-cama.jpg",
+        "assets/img/gallery/habitaciones/habitacion-entrada.jpg",
+        "assets/img/gallery/habitaciones/habitacion-cocina.jpg",
+        "assets/img/gallery/habitaciones/habitacion-bar.jpg",
+        "assets/img/gallery/habitaciones/habitacion-living.jpg",
+        "assets/img/gallery/habitaciones/habitacion-bano.jpg"
+      ]
+    },
+    posada: {
+      textKey: "gallery_modal_posada_text",
+      images: [
+        "assets/img/gallery/posada/posada-entrada.jpg",
+        "assets/img/gallery/posada/posada-letrero.jpg",
+        "assets/img/gallery/posada/posada-cabanas-1.jpg",
+        "assets/img/gallery/posada/posada-cabanas-2.jpg"
+      ]
+    },
+    compartir: {
+      textKey: "gallery_modal_compartir_text",
+      images: [
+        "assets/img/gallery/compartir/compartir-01-quincho.jpg",
+        "assets/img/gallery/compartir/compartir-02-quincho.jpg",
+        "assets/img/gallery/compartir/compartir-03-pingpong.jpg",
+        "assets/img/gallery/compartir/compartir-04-quincho.jpg",
+        "assets/img/gallery/compartir/compartir-05-recreacion.jpg",
+        "assets/img/gallery/compartir/compartir-06-quincho.jpg",
+        "assets/img/gallery/compartir/compartir-07-quincho.jpg",
+        "assets/img/gallery/compartir/compartir-08-quincho.jpg",
+        "assets/img/gallery/compartir/compartir-09-quincho.jpg"
+      ]
+    }
+  };
+  const CAROUSEL_TITLE_KEY = {
+    apartamentos: "gallery_group_habitaciones",
+    posada: "gallery_group_posada",
+    compartir: "gallery_group_compartir"
+  };
+
+  function initGalleryCarousel() {
+    const modal = document.querySelector(".carousel-modal");
+    if (!modal) return;
+    const img = modal.querySelector(".carousel-modal__img");
+    const title = modal.querySelector(".carousel-modal__title");
+    const text = modal.querySelector(".carousel-modal__text");
+    const dotsWrap = modal.querySelector(".carousel-modal__dots");
+    const prevBtn = modal.querySelector(".carousel-modal__arrow--prev");
+    const nextBtn = modal.querySelector(".carousel-modal__arrow--next");
+    const closeBtn = modal.querySelector(".carousel-modal__close");
+
+    let currentKey = null;
+    let currentIndex = 0;
+
+    function render() {
+      const entry = CAROUSEL_DATA[currentKey];
+      if (!entry) return;
+      img.src = entry.images[currentIndex];
+      dotsWrap.querySelectorAll(".carousel-modal__dot").forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === currentIndex);
+      });
+    }
+
+    function open(key) {
+      const entry = CAROUSEL_DATA[key];
+      if (!entry) return;
+      currentKey = key;
+      currentIndex = 0;
+      const dict = I18N[currentLang];
+      title.textContent = dict[CAROUSEL_TITLE_KEY[key]] || "";
+      text.textContent = dict[entry.textKey] || "";
+      dotsWrap.innerHTML = "";
+      entry.images.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "carousel-modal__dot";
+        dot.setAttribute("aria-label", "Foto " + (i + 1));
+        dot.addEventListener("click", () => {
+          currentIndex = i;
+          render();
+        });
+        dotsWrap.appendChild(dot);
+      });
+      render();
+      modal.classList.add("is-open");
+    }
+
+    function close() {
+      modal.classList.remove("is-open");
+    }
+
+    function step(delta) {
+      const entry = CAROUSEL_DATA[currentKey];
+      if (!entry) return;
+      currentIndex = (currentIndex + delta + entry.images.length) % entry.images.length;
+      render();
+    }
+
+    document.querySelectorAll("[data-carousel]").forEach((card) => {
+      const trigger = () => open(card.getAttribute("data-carousel"));
+      card.addEventListener("click", trigger);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          trigger();
+        }
+      });
+    });
+
+    prevBtn.addEventListener("click", () => step(-1));
+    nextBtn.addEventListener("click", () => step(1));
+    closeBtn.addEventListener("click", close);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!modal.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "ArrowRight") step(1);
+    });
+  }
+
   const EXPLORE_DATA = {
     playa: { img: "assets/img/explorar/playa-surf.jpg", key: "playa" },
     centrinho: { img: "assets/img/explorar/centrinho.jpg", key: "centrinho" },
@@ -205,6 +342,8 @@ const INSTAGRAM_URL = "https://www.instagram.com/aconchegodorosa/";
     initReveal();
     initLightbox();
     initExploreModal();
+    initGalleryCarousel();
+    initHeroSlides();
   });
 })();
 
