@@ -1,28 +1,27 @@
 /* ==========================================================================
    Pousada Aconchego do Rosa — stylesheet
    Paleta oficial (no cambiar sin actualizar el PDF de branding):
-   terracota #C1622C · siena #A8501F · durazno #D9895B
-   verde bosque #445E45 · marrón texto #33291F · crema #FAF3E8
+   terracota #A94A2F · dorado #F6DB84 · carmesí #8C0C20 · marrón #574944
    ========================================================================== */
 
 :root {
-  --terracota: #C1622C;
-  --siena: #A8501F;
-  --durazno: #D9895B;
-  --verde: #445E45;
-  --marron: #33291F;
+  --terracota: #A94A2F;
+  --siena: #8C3A22;
+  --durazno: #F6DB84;
+  --carmesi: #8C0C20;
+  --verde: #574944;
+  --marron: #574944;
   --crema: #FAF3E8;
-  --mar: #3E6E78;
-  --mar-claro: #6FA0A8;
+  --dorado: #F6DB84;
   --blanco: #FFFFFF;
 
-  --font-title: "Fraunces", Georgia, serif;
-  --font-accent: "Cormorant", Georgia, serif;
+  --font-title: "Satisfy", cursive;
+  --font-accent: "Times New Roman", Georgia, serif;
   --font-body: "Jost", "Segoe UI", sans-serif;
 
   --container: 1180px;
   --radius: 14px;
-  --shadow-soft: 0 12px 32px rgba(51, 41, 31, 0.12);
+  --shadow-soft: 0 12px 32px rgba(87, 73, 68, 0.12);
   --transition: 0.35s ease;
 }
 
@@ -47,8 +46,8 @@ a { color: inherit; text-decoration: none; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-title);
-  font-weight: 600;
-  line-height: 1.15;
+  font-weight: 400;
+  line-height: 1.2;
   margin: 0 0 0.5em;
   color: var(--marron);
 }
@@ -125,7 +124,7 @@ p { margin: 0 0 1em; }
 .btn--primary {
   background: var(--terracota);
   color: var(--blanco);
-  box-shadow: 0 8px 22px rgba(193, 98, 44, 0.35);
+  box-shadow: 0 8px 22px rgba(169, 74, 47, 0.35);
 }
 .btn--primary:hover { background: var(--siena); }
 
@@ -157,7 +156,7 @@ p { margin: 0 0 1em; }
 }
 .header.is-scrolled {
   background: rgba(250, 243, 232, 0.96);
-  box-shadow: 0 4px 20px rgba(51, 41, 31, 0.08);
+  box-shadow: 0 4px 20px rgba(87, 73, 68, 0.08);
   padding: 10px 0;
   backdrop-filter: blur(6px);
 }
@@ -287,7 +286,7 @@ p { margin: 0 0 1em; }
   max-width: 720px;
   padding-top: 120px;
 }
-.hero .eyebrow { color: var(--durazno); }
+.hero .eyebrow { color: var(--dorado); }
 .hero h1 {
   font-size: clamp(2.4rem, 5.6vw, 4.2rem);
   color: var(--blanco);
@@ -366,7 +365,7 @@ p { margin: 0 0 1em; }
   font-style: italic;
   color: var(--terracota);
   margin: 24px 0;
-  border-left: 3px solid var(--durazno);
+  border-left: 3px solid var(--dorado);
   padding-left: 20px;
 }
 
@@ -387,7 +386,7 @@ p { margin: 0 0 1em; }
 }
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(51, 41, 31, 0.16);
+  box-shadow: 0 18px 40px rgba(87, 73, 68, 0.16);
 }
 .card__icon {
   width: 46px;
@@ -434,7 +433,7 @@ p { margin: 0 0 1em; }
   cursor: pointer;
 }
 .explore-card:focus-visible {
-  outline: 3px solid var(--durazno);
+  outline: 3px solid var(--dorado);
   outline-offset: 3px;
 }
 .explore-card img {
@@ -475,7 +474,7 @@ p { margin: 0 0 1em; }
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--durazno), transparent);
+  background: linear-gradient(90deg, var(--dorado), transparent);
 }
 
 .gallery {
@@ -852,7 +851,7 @@ p { margin: 0 0 1em; }
   gap: 10px;
 }
 .footer a { opacity: 0.85; transition: opacity var(--transition); }
-.footer a:hover { opacity: 1; color: var(--durazno); }
+.footer a:hover { opacity: 1; color: var(--dorado); }
 .footer__bottom {
   border-top: 1px solid rgba(255,255,255,0.12);
   padding-top: 22px;
